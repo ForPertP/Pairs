@@ -17,18 +17,18 @@ vector<string> split(const string &);
 
 int pairs(int k, vector<int> arr)
 {
-    std::set<int> s;
-    int count = 0;
-
+    int pairCount = 0;
+    std::unordered_set<int> s;
+    
     for (const auto& n : arr)
     {
         s.insert(n);
         
-        if (s.find(n + k) != s.end()) count++;
-        if (s.find(n - k) != s.end()) count++;
+        if (s.find(n + k) != s.end()) pairCount++;
+        if (s.find(n - k) != s.end()) pairCount++;
     }
-
-    return count;
+    
+    return pairCount;
 }
 
 int main()
