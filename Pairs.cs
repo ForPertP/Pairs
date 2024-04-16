@@ -26,6 +26,18 @@ class Result
 
     public static int pairs(int k, List<int> arr)
     {
+        int pairCount = 0;
+        HashSet<int> s = new HashSet<int>();
+        
+        foreach (var n in arr)
+        {
+            s.Add(n);
+            
+            if (s.Contains(n + k)) pairCount++;
+            if (s.Contains(n - k)) pairCount++;
+        }
+        
+        return pairCount;
     }
 
 }
