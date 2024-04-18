@@ -22,6 +22,17 @@ class Result {
      */
 
     public static int pairs(int k, List<Integer> arr) {
+        int pairCount = 0;
+        HashSet<Integer> s = new HashSet<>();
+
+        for (int n : arr) {
+            s.add(n);
+
+            if (s.contains(n + k)) pairCount++;
+            if (s.contains(n - k)) pairCount++;
+        }
+
+        return pairCount;
     }
 
 }
